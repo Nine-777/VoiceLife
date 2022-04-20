@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VoiceLife</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  </head>
+
+  <body>
+    <header>
+      <div class="header-logo">
+        <%= link_to("VoiceLife","/") %>
+      </div>
+      <ul class="header-menus">
+        <li>
+          <%= link_to("VoiceLifeとは","/about") %>
+        </li>
+        <li>
+          <%= link_to("投稿一覧","/posts/index") %>
+        </li>
+        <li>
+          <%= link_to("新規投稿","/posts/new") %>  
+      </ul>
+    </header>
+    
+      <%= yield %>
+  </body>
+</html>
