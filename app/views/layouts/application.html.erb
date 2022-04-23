@@ -22,10 +22,22 @@
           <%= link_to("投稿一覧","/posts/index") %>
         </li>
         <li>
-          <%= link_to("新規投稿","/posts/new") %>  
+          <%= link_to("新規投稿","/posts/new") %>
+        </li>
+        <li>
+          <%= link_to("ユーザー一覧","/users/index") %>  
+        </li>
+        <li>
+          <%= link_to("新規登録","/signup") %>
+        </li>     
       </ul>
     </header>
     
-      <%= yield %>
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </dic>
+    <% end %>    
+    <%= yield %>
   </body>
 </html>
