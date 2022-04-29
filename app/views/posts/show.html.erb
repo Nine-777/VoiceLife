@@ -9,7 +9,9 @@
       </div>
       <div class="post-menus">
         <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-        <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
+        <%= form_tag "/posts/#{@post.id}/destroy", { method: :post } do %>
+          <%= submit_tag '削除' %>
+        <% end %>
       </div>
     </div>
   </div>
