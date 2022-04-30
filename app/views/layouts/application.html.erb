@@ -30,7 +30,9 @@
             <%= link_to("ユーザー一覧", "/users/index") %>
           </li>
           <li>
-            <%= link_to("ログアウト", "/logout", {method: "post"}) %>
+            <%= form_tag "/logout", { method: :post } do %>
+            <%= submit_tag 'ログアウト' %>
+            <% end %>
           </li>
         <% else %>
           <li>
