@@ -12,13 +12,16 @@
   <body>
     <header>
       <div class="header-logo">
-        <%= link_to("VoiceLife","/") %>
+        <% if @current_user %>
+          <%= link_to("VoiceLife", "/posts/index") %>
+        <% else %>
+          <%= link_to("VoiceLife", "/") %>
+        <% end %>    
       </div>
       <ul class="header-menus">
-        <% if session[:user_id] %>
+        <% if @current_user %>
           <li>
-            現在ログインしているユーザーのid:
-            <%= session[:user_id] %>
+            <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
           </li>
           <li>
             <%= link_to("投稿一覧", "/posts/index") %>
