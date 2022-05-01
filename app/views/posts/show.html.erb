@@ -1,6 +1,10 @@
 <div class="main posts-show">
   <div class="container">
     <div class="posts-show-item">
+      <div class="post-user-name">
+        <img src="<%= "/user_images/#{@user.image_name}" %>">
+        <%= link_to(@user.name, "/users/#{@user.id}") %>
+      </div>  
       <p>
         <%= @post.content %>
       </p>
