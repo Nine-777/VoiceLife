@@ -38,7 +38,7 @@
   /* 共通レイアウト ================================ */
   body {
     color: #2d3133;
-    background-color: #3ecdc6;
+    background-color: #ffd034;
     margin: 0;
     min-height: 1vh;
   }
@@ -125,7 +125,7 @@
     min-height: 100%;
     color: white;
     background-image: url("top.jpg");
-    background-color: #3cdbd3;
+    background-color: #ffd034;
     background-repeat: no-repeat;
     background-position: center 50%;
     background-size: cover;
@@ -214,7 +214,7 @@
   }
   
   .form input[type="submit"] {
-    background-color: #3ecdc6;
+    background-color: #ffd034;
     color: white;
     cursor: pointer;
     font-weight: 300;
@@ -235,7 +235,7 @@
   .flash {
     padding: 10px 0;
     color: white;
-    background: rgb(251, 170, 88);
+    background: rgb(133, 192, 255);
     text-align: center;
     position: absolute;
     top: 64px;
