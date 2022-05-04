@@ -28,7 +28,7 @@
   }
   
   .user-name a:hover {
-    color: #3ecdc6;
+    color: #ffd034;
   }
   
   .user-left {
@@ -97,7 +97,7 @@
   }
   
   .user-tabs li.active {
-    border-bottom: 2px solid #3ecdc6;
+    border-bottom: 2px solid #ffd034;
   }
   
   .user-tabs li.active a {
