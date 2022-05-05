@@ -16,7 +16,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_04_092314) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "file"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
