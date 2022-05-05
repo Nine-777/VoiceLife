@@ -11,11 +11,20 @@
       <div class="post-time">
         <%= @post.created_at %>
       </div>
+      <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <%= form_tag "/likes/#{@post.id}/destroy", { method: :post } do %>
+        <%= submit_tag 'いいね！済み' %>
+        <% end %>
+      <% else %>
+        <%= form_tag "/likes/#{@post.id}/create", { method: :post } do %>
+        <%= submit_tag 'いいね！' %>
+        <% end %>
+      <% end %>    
       <% if @post.user_id == @current_user.id %>
         <div class="post-menus">
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>
           <%= form_tag "/posts/#{@post.id}/destroy", { method: :post } do %>
-            <%= submit_tag '削除' %>
+          <%= submit_tag '削除' %>
           <% end %>
         </div>
       <% end %>  
