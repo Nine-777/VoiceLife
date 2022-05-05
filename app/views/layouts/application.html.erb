@@ -13,7 +13,7 @@
     <header>
       <div class="header-logo">
         <% if @current_user %>
-          <%= link_to("VoiceLife", "/posts/index") %>
+          <%= link_to("VoiceLife",  posts_path) %>
         <% else %>
           <%= link_to("VoiceLife", "/") %>
         <% end %>    
@@ -24,7 +24,7 @@
             <%= link_to(@current_user.name, "/users/#{@current_user.id}") %>
           </li>
           <li>
-            <%= link_to("投稿一覧", "/posts/index") %>
+            <%= link_to("投稿一覧",  posts_path) %>
           </li>
           <li>
             <%= link_to("新規投稿", "/posts/new") %>
