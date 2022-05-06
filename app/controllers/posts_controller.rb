@@ -7,7 +7,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    params[:id] = Post.first.id
     @post = Post.find_by(id: params[:id])
     @user = User.find_by(id: @post.user_id)
   end
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿を作成しました"
       redirect_to posts_path
     else
-      render("posts/new")
+      render new_post_path
     end
   end
 
