@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       flash[:notice] = "ユーザー登録が完了しました"
     else
       flash[:error] = "作成に失敗しました"
-      render("users/new")
+      render new_user_path
     end
   end
 
@@ -50,7 +50,7 @@ class UsersController < ApplicationController
       redirect_to("/users/#{@user.id}")
       flash[:notice] = "ユーザー情報を編集しました"            
     else            
-      render("users/edit")            
+      render edit_user_path        
     end            
   end
 

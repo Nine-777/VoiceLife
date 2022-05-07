@@ -1,7 +1,7 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag("/posts/create") do %>
+    <%= form_tag posts_path do %>
     <div class="form">
         <div class="form-body">
           <% @post.errors.full_messages.each do |message| %>
