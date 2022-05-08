@@ -13,13 +13,18 @@
       </div>
       <% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
         <%= form_tag "/likes/#{@post.id}/destroy", { method: :post } do %>
-        <%= submit_tag 'いいね！済み' %>
+          <%= button_tag type: :submit, style: "border-style: none; background: none;" do %>
+            <span class="fa fa-heart liked-btn"></span>
+          <% end %>
         <% end %>
       <% else %>
         <%= form_tag "/likes/#{@post.id}/create", { method: :post } do %>
-        <%= submit_tag 'いいね！' %>
+          <%= button_tag type: :submit, style: "border-style: none; background: none;" do %>
+            <span class="fa fa-heart unliked-btn"></span>
+          <% end %>
         <% end %>
-      <% end %>    
+      <% end %>
+      <%= @likes_count %>    
       <% if @post.user_id == @current_user.id %>
         <div class="post-menus">
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>
