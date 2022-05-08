@@ -40,7 +40,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿を編集しました"
       redirect_to posts_path
     else
-      render edit_post_path
+      render("posts/edit")
     end  
   end
 
