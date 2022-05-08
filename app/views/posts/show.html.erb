@@ -23,7 +23,7 @@
       <% if @post.user_id == @current_user.id %>
         <div class="post-menus">
           <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-          <%= form_tag "/posts/#{@post.id}/destroy", { method: :post } do %>
+          <%= form_tag post_path(@post), method: :delete do %>
           <%= submit_tag '削除' %>
           <% end %>
         </div>
