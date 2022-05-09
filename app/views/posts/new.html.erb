@@ -10,7 +10,11 @@
             </div>
           <% end %>
           <textarea name= "content"><%= @post.content %></textarea>
-          <input type="submit" value="投稿">
+          <%= form_for @post do |f| %>
+            <%= f.label :file %>
+            <%= f.file_field :file , :size => 140 %>
+            <%= f.submit "送信" %>
+          <% end %>
         </div>
       </div>
     <% end %>
