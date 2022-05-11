@@ -46,10 +46,13 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 gem "carrierwave"
 gem 'audiojs-rails'
+gem "annotate"
+gem 'cloudinary'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'pry-rails'
 end
 
 group :development do
