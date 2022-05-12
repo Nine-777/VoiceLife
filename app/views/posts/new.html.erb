@@ -2,21 +2,18 @@
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
     <div class="form">
-      <div class="form-body">
-        <% @post.errors.full_messages.each do |message| %>
-          <div class="form-error">
-            <%= message %>
-          </div>
-        <% end %>
-      </div>
-    </div>
-    <%= form_for @post do |f| %>
-      <%= f.label :content %>
-      <%= f.text_area :content %>
-      <br>
-      <%= f.label :file %>
-      <%= f.file_field :file , :size => 140 %>
-      <%= f.submit "送信" %>
-    <% end %>
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= form_for @post do |f| %>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+        <%= f.label :file %>
+        <%= f.file_field :file , :size => 140 %>
+        <%= f.submit "送信" %>
+      <% end %>
+    </div>  
   </div>
 </div>
