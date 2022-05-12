@@ -8,6 +8,9 @@
       <p>
         <%= @post.content %>
       </p>
+      <% if @post.file.present? %> 
+        <%= audio_tag @post.file_url, :controls => true %>
+      <% end %>  
       <div class="post-time">
         <%= @post.created_at %>
       </div>

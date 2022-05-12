@@ -1,18 +1,19 @@
 <div class="main posts-new">
   <div class="container">
     <h1 class="form-heading">投稿する</h1>
-    <%= form_tag posts_path do %>
     <div class="form">
-        <div class="form-body">
-          <% @post.errors.full_messages.each do |message| %>
-            <div class="form-error">
-              <%= message %>
-            </div>
-          <% end %>
-          <textarea name= "content"><%= @post.content %></textarea>
-          <input type="submit" value="投稿">
+      <% @post.errors.full_messages.each do |message| %>
+        <div class="form-error">
+          <%= message %>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+      <%= form_for @post do |f| %>
+        <%= f.label :content %>
+        <%= f.text_area :content %>
+        <%= f.label :file %>
+        <%= f.file_field :file , :size => 140 %>
+        <%= f.submit "送信" %>
+      <% end %>
+    </div>  
   </div>
 </div>
