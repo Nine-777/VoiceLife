@@ -3,11 +3,8 @@
 # Table name: users
 #
 #  id                     :bigint           not null, primary key
-#  email                  :string(255)
+#  email                  :string(255)      default(""), not null
 #  encrypted_password     :string(255)      default(""), not null
-#  image_name             :string(255)
-#  name                   :string(255)
-#  password_digest        :string(255)
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string(255)
@@ -20,12 +17,16 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-    has_secure_password
-    validates :name, {presence: true}
-    validates :email, {presence: true, uniqueness: true}
-
-    def posts
-        return Post.where(user_id: self.id)
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
+         # 以下を追加
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+      # user.confirmed_at = Time.now  # Confirmable を使用している場合は必要
+      # 例えば name を入力必須としているならば， user.name = "ゲスト" なども必要
     end
-
+  end
 end
