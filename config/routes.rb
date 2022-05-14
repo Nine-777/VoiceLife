@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # 以下を追加
   post '/home/guest_sign_in', to: 'home#guest_sign_in'
   post "likes/:post_id/create" => "likes#create"
   post "likes/:post_id/destroy" => "likes#destroy"
