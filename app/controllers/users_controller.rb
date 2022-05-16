@@ -20,16 +20,16 @@ class UsersController < ApplicationController
     @user = User.new(
       name: params[:name], 
       email: params[:email],
-      image_name: "default_user.jpg",
-      password: params[:password]
+      password: params[:password],
+      image_name: "default_user.jpg"
     )
     if @user.save
       session[:user_id] = @user.id
-      redirect_to("/users/#{@user.id}")
+      redirect_to user_path
       flash[:notice] = "ユーザー登録が完了しました"
     else
       flash[:error] = "作成に失敗しました"
-      render new_user_path
+      render ("users/new")
     end
   end
 
