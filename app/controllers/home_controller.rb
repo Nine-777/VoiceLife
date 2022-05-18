@@ -13,8 +13,7 @@ class HomeController < ApplicationController
 
   def guest_sign_in
     user = User.guest
-    sign_in user
-    redirect_to posts_path, notice: 'ゲストユーザーとしてログインしました。'
+    redirect_to posts_path, notice: "#{ current_user.name }でログインしました"
   end
 
 end

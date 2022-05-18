@@ -21,11 +21,12 @@ class UsersController < ApplicationController
       name: params[:name], 
       email: params[:email],
       password: params[:password],
+      password_confirmation: params[:password_confirmation],
       image_name: "default_user.jpg"
     )
     if @user.save
       session[:user_id] = @user.id
-      redirect_to user_path
+      redirect_to user_path(@user)
       flash[:notice] = "ユーザー登録が完了しました"
     else
       flash[:error] = "作成に失敗しました"
@@ -59,7 +60,7 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email])
-    if @user && @user.authenticate(params[:password])
+    if @user
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to posts_path

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_15_102006) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_16_135747) do
   create_table "likes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
@@ -37,6 +37,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_15_102006) do
     t.string "image_name"
     t.string "name"
     t.string "password"
+    t.string "password_confirmation"
+    t.string "password_digest"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
