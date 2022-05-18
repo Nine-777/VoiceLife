@@ -7,4 +7,13 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def index
+  end
+
+  def guest_sign_in
+    user = User.guest
+    redirect_to posts_path, notice: "#{ current_user.name }でログインしました"
+  end
+
 end

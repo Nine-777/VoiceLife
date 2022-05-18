@@ -48,6 +48,9 @@
           <li>
             <%= link_to("ログイン", "/login") %>
           </li>
+          <li>
+            <%= button_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, method: :post %>
+          </li>
         <% end %>         
       </ul>
     </header>

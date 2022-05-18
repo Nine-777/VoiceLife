@@ -2,7 +2,10 @@ class ApplicationController < ActionController::Base
     before_action :set_current_user
 
     def set_current_user
-        @current_user = User.find_by(id: session[:user_id])
+      if params[:action] == "guest_sign_in"
+        session[:user_id] = 1
+      end
+      @current_user = User.find_by(id: session[:user_id])
     end
 
     def authenticate_user
@@ -18,5 +21,8 @@ class ApplicationController < ActionController::Base
         redirect_to posts_path
       end
     end
-            
+
+    # def after_sign_in_path_for(resource)
+    #   users_path(resource)
+    # end
 end
