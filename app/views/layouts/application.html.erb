@@ -10,58 +10,61 @@
   </head>
 
   <body>
-    <header>
-      <div class="header-logo">
-        <% if @current_user %>
-          <%= link_to("VoiceLife",  posts_path) %>
-        <% else %>
-          <%= link_to("VoiceLife", "/") %>
-        <% end %>    
-      </div>
-      <img src="top-icon.png" width="30" height="30">
-      <ul class="header-menus">
-        <% if @current_user %>
-          <li class="user-image">
-            <img src="<%= "/user_images/#{@current_user.image_name}" %>">
-          </li>
-          <li>
-            <%= link_to(@current_user.name, user_path(@current_user)) %>
-          </li>
-          <li>
-            <%= link_to("投稿一覧", posts_path) %>
-          </li>
-          <li>
-            <%= link_to("新規投稿", new_post_path) %>
-          </li>
-          <li>
-            <%= link_to("ユーザー一覧", users_path) %>
-          </li>
-          <li>
-            <%= form_tag "/logout", { method: :post } do %>
-            <%= submit_tag 'ログアウト' %>
-            <% end %>
-          </li>
-        <% else %>
-          <li>
-            <%= link_to("VoiceLifeとは","/about") %>
-          </li>
-          <li>
-            <%= link_to("新規登録","/signup") %>
-          </li>
-          <li>
-            <%= link_to("ログイン", "/login") %>
-          </li>
-          <li>
-            <%= button_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, {method: :post, class: "guest-button"} %>
-          </li>
-        <% end %>         
-      </ul>
-    </header>
+    <div class="a">
+      <header>
+          <div class="header-logo">
+            <% if @current_user %>
+              <%= link_to("VoiceLife",  posts_path) %>
+            <% else %>
+              <%= link_to("VoiceLife", "/") %>
+            <% end %>    
+          </div>
+          <img src="top-icon.png" width="30" height="30">
+          <ul class="header-menus">
+            <% if @current_user %>
+              <li class="user-image">
+                <img src="<%= "/user_images/#{@current_user.image_name}" %>">
+              </li>
+              <li>
+                <%= link_to(@current_user.name, user_path(@current_user)) %>
+              </li>
+              <li>
+                <%= link_to("投稿一覧", posts_path) %>
+              </li>
+              <li>
+                <%= link_to("新規投稿", new_post_path) %>
+              </li>
+              <li>
+                <%= link_to("ユーザー一覧", users_path) %>
+              </li>
+              <li>
+                <%= form_tag "/logout", { method: :post } do %>
+                <%= submit_tag 'ログアウト' %>
+                <% end %>
+              </li>
+            <% else %>
+              <li>
+                <%= link_to("VoiceLifeとは","/about") %>
+              </li>
+              <li>
+                <%= link_to("新規登録","/signup") %>
+              </li>
+              <li>
+                <%= link_to("ログイン", "/login") %>
+              </li>
+              <li>
+                <%= button_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, {method: :post, class: "guest-button"} %>
+              </li>
+            <% end %>         
+          </ul>
+      </header>
+    </div>  
+  
 
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
-      </dic>
+      </div>
     <% end %>   
 
     <%= yield %>
