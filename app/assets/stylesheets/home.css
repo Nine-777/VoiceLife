@@ -41,14 +41,13 @@
     color: #2d3133;
     margin: 0;
     padding: 0;
-    margin-bottom: 100px;
   }
   
   .main {
-    position: absolute;
     top: 64px;
     width: 100%;
     height: 100%;
+    padding-bottom: 32px;
   }
   
   .container {
@@ -57,12 +56,13 @@
     padding-left: 15px;
     padding-right: 15px;
     clear: both;
+    overflow: scroll;
+    height: 500px;
   }
   
   /* ヘッダー ================================ */
   header {
     height: 64px;
-    position: absolute;
     background-color: #ffd034;
     z-index: 1;
     width: 100%;
@@ -139,10 +139,9 @@
 
 
   /* フッダー ================================ */
-  .footer {
+  footer {
     position: absolute;
     bottom: 0;
-    left: 0;
     width: 100%;
     height: 32px;
     background-color: #ffd034;
@@ -159,7 +158,6 @@
     min-height: 100%;
     color: white;
     background-image: url("top.jpg");
-    background-color: #ffd034;
     background-repeat: no-repeat;
     background-position: center 50%;
     background-size: cover;
