@@ -21,6 +21,9 @@
       <img src="top-icon.png" width="30" height="30">
       <ul class="header-menus">
         <% if @current_user %>
+          <li class="user-image">
+            <img src="<%= "/user_images/#{@current_user.image_name}" %>">
+          </li>
           <li>
             <%= link_to(@current_user.name, user_path(@current_user)) %>
           </li>
@@ -49,17 +52,22 @@
             <%= link_to("ログイン", "/login") %>
           </li>
           <li>
-            <%= button_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, method: :post %>
+            <%= button_to 'ゲストログイン（閲覧用）', home_guest_sign_in_path, {method: :post, class: "guest-button"} %>
           </li>
         <% end %>         
       </ul>
     </header>
-    
+
     <% if flash[:notice] %>
       <div class="flash">
         <%= flash[:notice] %>
       </dic>
-    <% end %>    
+    <% end %>   
+
     <%= yield %>
+
+    <footer>
+    </footer>
+
   </body>
 </html>
