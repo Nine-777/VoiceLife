@@ -51,7 +51,7 @@ class UsersController < ApplicationController
       redirect_to("/users/#{@user.id}")
       flash[:notice] = "ユーザー情報を編集しました"            
     else            
-      render edit_user_path        
+      render("users/edit")        
     end            
   end
 
@@ -60,7 +60,7 @@ class UsersController < ApplicationController
 
   def login
     @user = User.find_by(email: params[:email])
-    if @user
+    if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       flash[:notice] = "ログインしました"
       redirect_to posts_path
