@@ -29,7 +29,8 @@ class User < ApplicationRecord
   # validates :password, {presence: true}
   has_secure_password
   # devise :database_authenticatable
-         
+  has_many :posts, dependent: :destroy   
+  
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
@@ -38,8 +39,8 @@ class User < ApplicationRecord
     end
   end
 
-  def posts
-    return Post.where(user_id: self.id)
-  end
+  # def posts
+  #   return Post.where(user_id: self.id)
+  # end
 
 end
