@@ -295,6 +295,7 @@ GEM
     zeitwerk (2.5.4)
 
 PLATFORMS
+  bundle lock -unknown
   x86_64-darwin-21
   x86_64-linux
 
