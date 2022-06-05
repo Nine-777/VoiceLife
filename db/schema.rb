@@ -23,7 +23,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_135747) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "file"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -34,7 +33,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_16_135747) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "image_name"
     t.string "name"
     t.string "password"
     t.string "password_confirmation"
